@@ -6,7 +6,7 @@ import pendulum
 import json
 
 
-#This function can only be used with a developer account so we can generate all keys (consumer and access keys) needed for the twitter API. the output is an OAuth session with which we can tweet.
+#This function can only be used if we are planning to tweet from the developer account. We have to generate all keys (consumer and access keys) needed for the twitter API. The output is an OAuth session with which we can make API requests.
 def get_oauth_object():
     with open('secret.json') as secret:
         js= json.load(secret)
@@ -23,7 +23,7 @@ def get_oauth_object():
 )
     return oauth
 
-#Function through which we obtain the credentials of any user, requiring their authorization. the output is an OAuth session with which we can tweet
+#Function through which we obtain the credentials for any user, requiring their authorization. the output is an OAuth session with which we can make API requests. User interaction is required
 def get_credentials_from_scratch():
 
     #Consumer Keys that represents the app. They MUST be in the environment and not in the code when the app is in production.
