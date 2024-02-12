@@ -1,0 +1,20 @@
+name: new-version
+
+on: 
+  workflow_dispatch:
+    inputs:
+      version:  
+        description: 'Define doc new version'
+  
+jobs:
+  new-version:
+    runs-on: [self-hosted]
+    env:
+      REPOSITORY_NAME: ${{ github.event.repository.name }}
+      GIT_PAT: ${{ secrets.PAT }}
+      GIT_USER: actions
+      GIT_MAIL: actions@iac.com
+    steps:
+      - name: testing
+        run: | 
+          echo 'It WORKS!'
